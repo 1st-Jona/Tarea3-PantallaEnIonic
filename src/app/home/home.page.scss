@@ -3,9 +3,11 @@
     text-align: center;
     left: 0;
     right: 0;
-    padding: 10%;
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
     background-color: #ECDFD5;
-    top: 10%;
+    top: 5%;
 }
 
 #icon {
@@ -16,6 +18,8 @@
 
 #card2 {
     background-color: #3E4D5E;
+    border-radius: 1pc;
+    box-shadow: 5px 5px 5px black;
 }
 
 h1 {
@@ -35,13 +39,25 @@ ion-toolbar {
     --color: #57575C;
 }
 
+ion-item {
+    --background: #3E4D5E;
+    --color: white;
+}
+
+ion-input {
+    --background: #ECDFD5;
+    --color: #57575C;
+    border-radius: 20pc;
+    height: 60%;
+}
+
 ion-content {
     --background: #57575C;
 }
 
 p,
 h3 {
-    font-size: 100%;
+    font-size: 130%;
     color: white;
     text-align: justify;
     font-family: "Latin Modern Roman 10";

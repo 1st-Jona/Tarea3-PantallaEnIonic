@@ -7,17 +7,31 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <ion-card id="card">
-        <ion-card id="card2">
-            <h1>Islas Marietas</h1>
-            <h3>(Isla del amor)</h3>
-            <img id="photo" src="https://www.eluniversal.com.mx/sites/default/files/playa_amor_nayarit_0.jpg">
-            <div>
-                <p>Las Islas Marietas se encuentran a 27 km de Nuevo Vallarta, a 35 km de Puerto Vallarta y a solo 8km de Punta Mita; es hogar de aves marinas migratorias y continentales, aquí se encuentra la población más grande a nivel mundial de pájaros
-                    bobos de patas amarillas, cafés y azules. Su parque Marino protege en total a 44 especies de flora y fauna, varias de ellas en peligro de extinción, por lo que es considerada también como Reserva de la Biosfera por la UNESCO.
-                </p>
-            </div>
+    <ion-item>
+        <ion-label positiion="floating">Buscar :</ion-label>
+        <ion-input type=text [(ngModel)]="search" (keyup)="filter()"></ion-input>
+    </ion-item>
 
-        </ion-card>
+    <ion-card id="card">
+        <div>
+            <ion-card id="card2" *ngFor="let place of places; index as i;">
+                <h1>{{place.title}}</h1>
+                <h3>{{place.subtitle}}</h3>
+                <img id="photo" src={{place.image}}>
+                <div>
+                    <p>{{place.description}}</p>
+                    <ion-chip color="success" *ngIf="place.active" (click)="changeStatus(i)">
+                        <ion-label>Activo</ion-label>
+                    </ion-chip>
+                    <ion-chip color="danger" *ngIf="!place.active" (click)="changeStatus(i)">
+                        <ion-label>Inactivo</ion-label>
+                    </ion-chip>
+                    <ion-button color="danger" (click)="deletePlace(i); filter()">Eliminar</ion-button>
+                </div>
+
+            </ion-card>
+        </div>
     </ion-card>
+
+
 </ion-content>
